@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title></title>
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/bootstrap-responsive.css">
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/bootstrap.css">
+<link type="text/css" rel="stylesheet" href="{{ STATIC_URL }}css/screen.css" />
+<link rel="stylesheet" href="{{ STATIC_URL }}css/jquery.ui.all.css">
+<script type="text/javascript" charset="utf-8" src="http://code.jquery.com/jquery-latest.min.js"></script>
+<!-- <script src="{{ STATIC_URL }}js/jquery-1.7.2.js"></script> -->
+<script src="{{ STATIC_URL }}js/jquery.ui.core.js"></script>
+<script src="{{ STATIC_URL }}js/jquery.ui.widget.js"></script>
+<script src="{{ STATIC_URL }}js/jquery.ui.position.js"></script>
+<script src="{{ STATIC_URL }}js/jquery.ui.autocomplete.js"></script>
+
+<script type="text/javascript" charset="utf-8" src="{{ STATIC_URL }}js/plugins.js"></script>
+<script type="text/javascript" charset="utf-8" src="{{ STATIC_URL }}js/bootstrap.js"></script>
+<script type="text/javascript" charset="utf-8" src="{{ STATIC_URL }}js/jquery.easing.1.3.js"></script>
+<script type="text/javascript" charset="utf-8" src="{{ STATIC_URL }}js/util.js"></script>
+	
+	<script type="text/javascript">
+		$(function() {
+
+		$( "#caixa-busca" ).autocomplete({
+			source: prefeitos,
+			minLength: 2,
+			select: function( event, ui ) {
+				console.log(ui);
+				
+			},search: function(event, ui) { 
+				console.log(ui);
+			}
+		});
+	});
+
+	</script>
+</head>
+<body>
+<div id="main-content" class="interna">
+	<script type="text/javascript">
+		var prefeitos = {{ jsonPrefeitos|safe }};
+		var vereadores = {{ jsonVereadores|safe }};
+	</script>
+	<header>
+		<h1 id="logo"><img src="{{ STATIC_URL }}img/logo-meu-candidato-no-facebook.jpg" alt="Logo"></h1>
+		<section class="candidato-selected">
+			<div class="vereador-selected"></div>
+			<div class="prefeito-selected"></div>
+		</section>
+		<div class="navbar none">
+			<div class="navbar-inner">
+				<div class="container"> <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </a> <a class="brand" href="#">Procure seu candidato:</a>
+					<!-- <div class="demo">
+					<div class="ui-widget">
+						<input id="city" />
+					</div>
+					</div> -->
+					<div class="nav-collapse">
+						<ul class="nav none">
+							<li class="active"><a href="#">Home</a></li>
+							<li><a href="#">Link</a></li>
+							<li><a href="#">Link</a></li>
+							<li><a href="#">Link</a></li>
+						</ul>
+						<form class="navbar-search pull-left" action="">
+							<input type="text" class="search-query span2" placeholder="Buscar por candidato">
+							<select id="select01">
+								<option>buscar por</option>
+								<option>nome</option>
+								<option>partido</option>
+								<option>numero</option>
+								<option>cargo</option>
+							</select>
+							<button type="submit" class="btn">Buscar</button>
+						</form>
+					</div>
+					<!-- /.nav-collapse --> 
+				</div>
+			</div>
+			<!-- /navbar-inner --> 
+		</div>
+		<nav>
+			<p class="none">Procure por seu candidato</p>
+			<form class="navbar-search pull-left none">
+				<input type="text" class="search-query" placeholder="Search">
+			</form>
+			<form action="" method="post">
+				<div class="demo">
+					<div class="ui-widget">
+						<input type="text" name="busca" placeholder="digite o nome do seu candidato" id="caixa-busca" />
+					</div>
+				</div>
+				<select name="buscarpor">
+					<option value="nome">buscar por nome</option>
+					<option value="partido">buscar por partido</option>
+					<option value="numero">buscar por número</option>
+				</select>
+				<input type="submit" class="submit" value="buscar" id="btsubmit" />
+			</form>
+		</nav>
+	</header>
+		{% block content %}
+		{% endblock %}
+
+	</div>
+</body>
+<!-- <script type="text/javascript" charset="utf-8" src="js/jquery-1.2.1.js"></script> -->
+
+</html>

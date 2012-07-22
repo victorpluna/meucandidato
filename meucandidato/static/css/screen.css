@@ -1,0 +1,183 @@
+/* reset */
+/*
+Copyright (c) 2011,Yahoo! Inc. All rights reserved.
+Code licensed under the BSD License:http://developer.yahoo.com/yui/license.html
+version:2.9.0
+*/
+html{color:#000;background:#FFF;overflow:-moz-scrollbars-vertical}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,select,p,blockquote,th,td{margin:0;padding:0}
+table{border-collapse:collapse;border-spacing:0}
+fieldset,img{border:0}
+address,button,caption,cite,code,dfn,em,input,optgroup,option,select,strong,textarea,th,var{font:inherit}
+del,ins{text-decoration:none}
+li{list-style:none}
+caption,th{text-align:left}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}
+q:before,q:after{content:''}
+abbr,acronym{border:0;font-variant:normal}
+sup{vertical-align:baseline}
+sub{vertical-align:baseline}
+legend{color:#000}
+*{outline:0}
+/* end reset */
+/* framework */
+body .clear{clear:both;font-size:0;height:0;line-height:0}
+body .left{float:left}
+body .right{float:right}
+body .block{display:block}
+body .none{display:none!important}
+body .relative{position:relative}
+body .absolute{position:absolute}
+body .sumir{overflow:hidden;text-indent:-999em}
+/* end framework */
+/*estrutura*/
+body{font-size:12px;}
+#main-content{width:790px;margin:0 auto;position:relative;padding:20px;font-family:"Trebuchet Ms",Verdana,Arial,Helvetica,sans-serif;}
+.coluna-unica{padding-left:20px}
+#coluna-esquerda {
+width: 110px;
+float: left;
+padding-left: 25px;
+}
+.coluna-direita{margin-left:125px}
+#coluna-direita{padding-right:10px}
+.barra-logado{
+width: 100%;
+height: 18px;
+background: black;
+position: relative;
+top: 0;
+left: 0;
+margin-bottom: 13px;
+color: white;
+padding: 5px;
+}
+/*fim estrutura*/
+/* header */
+#logo{float:left;}
+header{height:180px;}
+header nav {
+clear: both;
+float: left;
+margin-top: 10px;
+height: 33px;
+background: url('/static/img/bg-menu.jpg') no-repeat -3px 0;
+padding: 5px 0 6px 195px;
+position: relative;
+display: block;
+width: 600px;
+}
+header nav p{color:white;text-transform:uppercase;visibility:hidden;}
+header nav form{margin-top:6px;}
+header nav #caixa-busca{height:20px;font-style:italic;width:338px;line-height:20px;border:none;background:white;margin-right:22px;color:gray;}
+header nav .selector,header nav select,select{min-width:125px;margin-right:10px;position:relative;font-size:10px;line-height:19px;font-family:trebuchet Ms;padding:4px}
+header nav .selector{margin-left:3px;}
+header nav #btsubmit{width:70px;height:21px;display:block;cursor:pointer;background:none;font-size:0;line-height:0;border:none;}
+header .candidato-selected{float:left;margin-left:100px;}
+header .candidato-selected div{width:125px;height:119px;float:left;background:url('/static/img/bg-candidatos-selecionados.jpg') no-repeat;margin-right:40px}
+nav *{float:left;}
+/* end header */
+/* conteúdo */
+#container-conteudo {background:url(/static/img/background.jpg) repeat-y 8px -40px;min-height: 655px;}
+h2{font-size:20px;color:#2470b1;}
+.descricao{margin:0 0 15px 25px;color:#a4a2a2}
+.cinza1{color:#a4a2a2}
+.listagem{overflow:hidden}
+#control-abas{margin-left: -25px;}
+#control-abas li{width:95px;height:20px;position:relative;text-align:right;background:url('/static/img/bg-nav-abas.png') no-repeat;color:#6E6C6C;padding:35px 20px 0 0;background-position:bottom;cursor:pointer}
+#control-abas li.active{background-position:0 1px;color:white;}
+.listagem article{width:196px;height:130px;float:left;padding:5px;margin:0 3px 3px 0;border:solid 2px #8D8D8D;position:relative;background:white}
+/*dados do candidato*/
+.numero {
+font-size: 43px;
+font-family: impact;
+float: right;
+color: #7EB710;
+margin-top: 15px;
+}
+.nome-candidato{font-size:17px;font-family:Arial, Helvetica, sans-serif;font-weight:bold}
+.partido{font-size:10px;margin-top:-3px}
+.cargo{font-size:15px;color:white;background:#2561ba;clear:both;padding:5px}
+.foto-candidato{
+float: left;
+margin: 0 10px 20px 0;
+border: 3px solid #ABC;
+}
+.listagem label{clear:right}
+.listagem label,.listagem input[type="radio"]{float: right;}
+#patrocinados{background:#ffea5d;overflow: hidden;padding:6px 0 0 6px;margin: 0 0 10px 0;}
+.listagem .saibamais {
+font-size: 10px;
+text-transform: uppercase;
+position: absolute;
+left: 7px;
+top: 84px;
+}
+.redes-sociais {
+background: url(/static/img/bg-compartilhe.png) no-repeat left top;
+padding: 8px 0 0 8px;
+height: 147px;
+margin-top: 25px;
+margin-left: -5px;
+width:106px;
+overflow:hidden
+}
+.redes-sociais * {margin: 15px 0 0 0;}
+}
+.container-listas{float: right;width: 30%;}
+.container-listas ul{float:right}
+.navbar #select01{width:100px}
+.sempatrocinio{padding-left: 5px;}
+/*conteúdo das internas*/
+.interna .redes-sociais{float:right}
+.interna .numero {
+float: left;
+margin-top: -26px;
+line-height: 50px;
+}
+.interna .numero .label{font-family:Arial, Helvetica, sans-serif}
+.interna .partido {font-size: 17px;margin-top: -3px;line-height: 25px;}
+.interna .cargo{margin-bottom:15px}
+.interna .selecionar-candidato{float: right;margin-right: 100px;}
+/*fim conteúdo das internas*/
+.regionalizacao{background:url(/static/img/bg-fundo-selecione-estado.jpg) no-repeat}
+.regionalizacao #container-conteudo {background:none;min-height: 655px;}
+.regionalizacao #coluna-direita {padding-right: 10px;color: white;margin-top: 94px;float: left;margin-left: 15px;z-index: 10;position: relative;}
+.regionalizacao .titulo{font-size: 24px;
+width: 200px;
+line-height: 27px;
+color: gray;}
+.aviso-escolha-estado{position: absolute;
+left: 20%;
+top: 82px;
+z-index:10
+}
+.regionalizacao #mapa{position: absolute;right: 121px;top: 66px}
+.frontpage header nav select {
+width: 125px;
+}
+.estado-selecionado strong{text-transform:uppercase}
+.home #container-conteudo{background:url(/static/img/home.jpg) no-repeat}
+a.home{text-indent: -999px;display: block;float: left;width: 600px;height: 500px;}
+.home header nav{float: left;margin-top:10px;height: 35px;background: url('/static/img/bg-menu-home.jpg') repeat;position: relative;display: block;width: 587px;border-radius: 20px;clear: none;padding: 0;}
+.home nav .btn-group{margin: 3px 0 0 152px;}
+.home .nav-tabs{margin: 0 0 0 77px;}
+.home .banner{margin: 0 0 0 19px}
+.nav-tabs > li > a{color:white}
+.home .nav-tabs > li > a:hover{color:#08C}
+.home .tab-pane{height:500px;padding: 10px;margin: 10px;background:#FFF;-moz-box-shadow: 10px 10px 5px #888;
+-webkit-box-shadow: 10px 10px 5px #888;
+box-shadow: 10px 10px 5px #888;border-radius:10px
+}
+#tab3{background:none}
+.home #coluna-direita{position:relative}
+.botao-entrar{position: absolute;left: 326px;bottom: 102px;}
+.img-float{float:left;margin:10px;border-radius: 20px;}
+.home .tab-pane{font-size:14px}
+.home .tab-pane li{list-style:inside;list-style-type:circle}
+/*fim dados do candidato*/
+
+/* end conteúdo */
+/* rodape */
+#footer{}
+/* rodape */

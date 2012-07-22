@@ -1,0 +1,54 @@
+ {% extends "base.html" %}
+ {% block content %}
+<section class="coluna" id="coluna-esquerda">
+			<ul id='control-abas'>
+				<li class='active'>Prefeitos</li>
+				<li>Vereadores</li>
+				<!-- {% url app_home_cargo 'Prefeito' %} -->
+			</ul>
+			<section class="redes-sociais"> 
+<a class='twitter-share-button' data-count='horizontal' expr:data-url='data:post.url' data-via='SEU_TWITTER' expr:data-text='data:post.title' href='http://twitter.com/share'>Twittar</a><script src='http://platform.twitter.com/widgets.js' type='text/javascript'></script>
+				<iframe src="http://www.facebook.com/plugins/like.php?href=www.google.com.br&layout=button_count&
+show_faces=false&width=380&action=like&colorscheme=light&height=25&locale=pt_BR" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:250px; height:25px;" allowTransparency="true"></iframe> </section>
+		</section>
+		<section class="coluna" id="coluna-direita">
+			<p class="cinza1">Candidatos à prefeito na cidade de Recife</p>
+			<div id='container-abas'>
+				<section class="listagem" id="listaprefeito">
+					{% for prefeito in prefeitos %}
+					<section id='patrocinados'>
+						<article> <img src="{{ MEDIA_URL }}{{prefeito.foto}}" width="62" height="73" class="foto-candidato">
+							<h3 class="nome-candidato">{{ prefeito.nome_urna }}</h3>
+							<p class="partido">Partido:<span>{{ prefeito.partido }}</span></p>
+							<span class="numero">{{ prefeito.numero }}</span>
+							<p class="cargo">{{ prefeito.cargo }} <span class="cidade">{{ prefeito.municipio.nome }}</span> - <span class="estado">PE</span>
+								<input type="radio" name="escolha" value="escolha" /> 
+								{% if prefeito.pacote != "FREE" %}
+									<a href="{% url candidato_interna prefeito.id %}" class="saibamais">saiba+</a>
+								{% endif %}
+							</p>
+						</article>
+						{% endfor %}
+					</section>
+				</section>
+				<section class="listagem" id="listavereador" style="display:none">
+					{% for vereador in vereadores %}
+					<article> <img src="{{ MEDIA_URL }}{{vereador.foto}}" width="62" height="73" class="foto-candidato">
+						<h3 class="nome-candidato">{{ vereador.nome_urna }}</h3>
+						<p class="partido">Partido:<span>{{ vereador.partido }}</span></p>
+						<span class="numero">{{ vereador.numero }}</span>
+						<p class="cargo">{{ vereador.cargo }}<span class="cidade">{{ vereador.municipio.nome }}</span> - <span class="estado">{{ vereador.municipio.estado }}</span>
+							<input type="radio" name="escolhavereador" value="1" />
+							{% if vereador.pacote != "FREE" %}
+								<a href="{% url candidato_interna vereador.id %}" class="saibamais">saiba+</a>
+							{% endif %}
+						</p>
+					</article>
+					{% endfor %}
+					
+				</section>
+			</div>
+		</section>
+	</section>
+
+{% endblock %}

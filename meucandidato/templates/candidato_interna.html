@@ -1,0 +1,96 @@
+ {% extends "base.html" %}
+ {% block content %}
+<section id='container-conteudo'>
+		<div class='descricao'>
+		<div class="container-listas">
+			<ul><li><a href="{% url app_home %}#prefeitos">Listagem de prefeitos </a>
+</li><li>			<a href="{% url app_home %}#vereadores">Listagem de vereadores</a></li></ul>
+</div>
+			<h2>Candidato: {{ candidato.nome_urna }} - {{ candidato.cargo }} - {{ candidato.municipio.nome }}</h2>
+			<p>COLIGAÇÃO:{{ candidato.coligacao }} - Partido: {{ candidato.partido }}</p>
+
+		</div>
+		<section class="coluna-unica" id="coluna-direita">
+			<p class="cinza1">Candidatos à prefeito na cidade de Recife</p>
+			<!--rede social ; links -->
+			<section class="redes-sociais"> <a class='twitter-share-button' data-count='horizontal' expr:data-url='data:post.url' data-via='SEU_TWITTER' expr:data-text='data:post.title' href='http://twitter.com/share'>Twittar</a><script src='http://platform.twitter.com/widgets.js' type='text/javascript'></script>
+				<iframe src="http://www.facebook.com/plugins/like.php?href=www.google.com.br&layout=button_count&
+show_faces=false&width=380&action=like&colorscheme=light&height=25&locale=pt_BR" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:250px; height:25px;" allowTransparency="true"></iframe>
+			</section>
+			<!--fim rede social ; links -->
+			<div id='container-abas'>
+				<section class="perfil" id="perfil-candidato">
+											<div class="btn-group selecionar-candidato">
+  <button class="btn">Escolher Candidato</button>
+</div>
+					<img src="{{ MEDIA_URL }}{{ candidato.foto }}" width="142" height="167" class="foto-candidato">
+							<h3 class="nome-candidato"><span class="label">Nome</span><br />{{ candidato.nome_urna }}</h3>
+							<p class="partido"><span class="label">Partido</span><br /><span>{{ candidato.partido }}</span></p>
+							<span class="numero"><span class="label">Numero</span> <br />{{ candidato.numero }}</span>
+							<p class="cargo">Prefeito <span class="cidade">{{ candidato.municipio.nome }}</span> - <span class="estado">PE</span>
+							</p>
+							<div class="tabbable"> <!-- Only required for left/right tabs -->
+  <ul class="nav nav-tabs">
+    <li class="active"><a href="#tab1" data-toggle="tab">Informações</a></li>
+    <li><a href="#tab2" data-toggle="tab">Propostas</a></li>
+	    <li><a href="#tab3" data-toggle="tab">Perguntas e Respostas</a></li>
+  </ul>
+  <div class="tab-content">
+    <div class="tab-pane active" id="tab1">
+      <p>{{ candidato.informacoes }}</p>
+    </div>
+    <div class="tab-pane" id="tab2">
+      <p>{{ candidato.propostas }}</p>
+    </div>
+	    <div class="tab-pane" id="tab3">
+      		{% for questao in perguntas %}
+				{% if questao.status %}
+					{{questao.pergunta}}
+					<br>
+					{{ questao.resposta }}
+					<br>
+				{% endif %}
+			{% endfor %}
+			
+    </div>
+  </div>
+</div>
+				</section>				
+			</div>
+		</section>
+	</section>
+{% endblock %}
+
+
+<a href="{% url app_home %}">Listagem de prefeitos</a>
+<a href="{% url app_home_cargo 'Vereador' %}">Listagem de vereadores</a>
+<br>
+{{ candidato.nome }}
+<br>
+{{ candidato.cargo }}
+<br>
+{{ candidato.numero }}
+<br>
+{{ candidato.coligacao }}
+<br>
+{{ candidato.cidade }}
+<br>
+<img style="width:105px;" src="{{ MEDIA_URL }}{{ candidato.foto }}" />
+Informações:<br>
+{{ candidato.informacoes }}
+<br>
+Propostas:<br>
+{{ candidato.propostas }}
+<br>
+Perguntas e Respostas:<br>
+{% for questao in perguntas %}
+	{% if questao.status %}
+		{{questao.pergunta}}
+		<br>
+		{{ questao.resposta }}
+		<br>
+	{% endif %}
+{% endfor %}
+{{ perguntas.pergunta }}
+</body>
+</html>

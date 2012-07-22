@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title></title>
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/bootstrap-responsive.css">
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/bootstrap.css">
+<link type="text/css" rel="stylesheet" href="{{ STATIC_URL }}css/screen.css" />
+</head>
+<body>
+<div id="main-content" class="home">
+	<header>
+		<h1 id="logo"><img src="{{ STATIC_URL }}img/logo-meu-candidato-no-facebook.jpg" alt="Logo"></h1>		
+		<img src="{{ STATIC_URL }}img/banner.jpg" width="545" height="85" class="banner">
+		<nav>
+		<div class="btn-group none">
+  <button class="btn">O que é?</button>
+  <button class="btn">Como participar?</button>
+  <button class="btn">Vantagens?</button>
+		</div>
+		  <ul class="nav nav-tabs">
+     <li class="active"><a href="#tab3" data-toggle="tab">Home</a></li>
+    <li><a href="#tab1" data-toggle="tab">O que é?</a></li>
+    <li><a href="#tab2" data-toggle="tab">Como participar?</a></li>
+    <li><a href="#tab4" data-toggle="tab">Vantagens?</a></li>
+  </ul>
+		</nav>
+	</header>
+	<section id="container-conteudo">
+	<section class="coluna" id="coluna-esquerda">
+	<section class="redes-sociais"> 
+<a class='twitter-share-button' data-count='horizontal' expr:data-url='data:post.url' data-via='SEU_TWITTER' expr:data-text='data:post.title' href='http://twitter.com/share'>Twittar</a><script src='http://platform.twitter.com/widgets.js' type='text/javascript'></script>
+				<iframe src="http://www.facebook.com/plugins/like.php?href=www.google.com.br&layout=button_count&
+show_faces=false&width=380&action=like&colorscheme=light&height=25&locale=pt_BR" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:250px; height:25px;" allowTransparency="true"></iframe> </section>
+	</section>
+<section class="coluna" id="coluna-direita">
+				<div class="tabbable"> <!-- Only required for left/right tabs -->
+  <div class="tab-content">
+      <div class="tab-pane active" id="tab3">
+<a href="{% url app_home %}" class="home"> Pode entrar</a>
+    </div>
+
+    <div class="tab-pane" id="tab1">
+      <p style="font-size: 15px;line-height: 25px;"><img src="{{ STATIC_URL }}img/share.jpg" width="100" height="69" class="img-float">
+	  É uma aplicação que permite que você curta, compartilhe e recomende aos seus amigos qual o candidato que mais você se identifica! Uma forma diferente de compartilhar com seus amigos quem você escolheria para o bem da sua cidade!
+<br />
+Podendo levar o seu nome para diversos canais de comunicação e redes sociais.</p>
+    </div>
+    <div class="tab-pane" id="tab2">
+      <p>É só selecionar o candidato clicando no botão escolha após entrar na aplicação.</p>
+	  <img src="{{ STATIC_URL }}img/modelo-selecionar-candidato.jpg" width="243" height="164">
+	  <br />
+	  <div class="alert alert-block">
+  <a class="close" data-dismiss="alert" href="#">×</a>
+  <h4 class="alert-heading">ATENÇÃO!!!!</h4>
+ É apenas uma ferramenta de informação sobre candidatos políticos SEM valor de voto <br />e/ou qualquer expressão perante o TRE.
+</div>
+
+	  <div class="alert alert-info">
+TODOS OS CANDIDATOS SÃO INCLUÍDOS NO SISTEMA APÓS A VERACIDADE DOS DADOS INFORMADOS E DEVIDAMENTE INSCRITOS NO CADASTRO NACIONAL DE PESSOA JURÍDICA (CNPJ) JUNTO AOS ORGÃOS RESPONSÁVEIS E APRESENTADOS APTOS PERANTE O TRE.
+</div>
+
+    </div>
+	    <div class="tab-pane" id="tab4">
+      <p>A<img src="{{ STATIC_URL }}img/sorteio.jpg" width="146" height="97" class="img-float">lém de compartilhar com seus amigos esse super aplicativo, você poderá concorrer ao sorteio de um smartphone!</p>
+	  <p>Regras para participar do sorteio:</p>
+	  <ol><li>Curtir a fanpage</li>
+	  <li>Curtir a fanpage</li>
+	  <li>Escolher os seus candidatos</li>
+	  <li>Compartilhar com os amigos</li>
+	  <li>Convidar outros amigos para participar</li>
+	  </ol>
+    </div>
+  </div>
+</div>
+<a href="{% url app_home %}" class="botao-entrar"><img src="{{ STATIC_URL }}img/botao-entrar.png" /></a>
+		</section>
+	</section>
+</div>
+</body>
+ <script type="text/javascript" charset="utf-8" src="{{ STATIC_URL }}js/jquery1.7.js"></script> 
+<!-- <script type="text/javascript" charset="utf-8" src="js/jquery-1.2.1.js"></script> -->
+<!--<script type="text/javascript" charset="utf-8" src="http://code.jquery.com/jquery-latest.min.js"></script>-->
+<script type="text/javascript" charset="utf-8" src="{{ STATIC_URL }}js/plugins.js"></script>
+<script type="text/javascript" charset="utf-8" src="{{ STATIC_URL }}js/bootstrap.js"></script>
+<script type="text/javascript" charset="utf-8" src="{{ STATIC_URL }}js/jquery.easing.1.3.js"></script>
+<script type="text/javascript" charset="utf-8" src="{{ STATIC_URL }}js/bootstrap-button.js"></script>
+<script type="text/javascript">$(function() {
+        $('#imagemap').maphilight();
+        /*$('#squidheadlink').mouseover(function(e) {
+            $('#squidhead').mouseover();
+        }).mouseout(function(e) {
+            $('#squidhead').mouseout();
+        }).click(function(e) { e.preventDefault(); });*/
+    });</script>
+
+<script type="text/javascript" charset="utf-8" src="{{ STATIC_URL }}js/util.js"></script>
+
+</html>
