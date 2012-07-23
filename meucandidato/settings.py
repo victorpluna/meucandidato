@@ -12,16 +12,16 @@ ADMINS = (
 APPEND_SLASH=False
 
 #Producao
-FACEBOOK_APPLICATION_ID = '304749059612493'
-FACEBOOK_APPLICATION_SECRET_KEY = 'c2fe4393d510a327026307788b414d47'
-FACEBOOK_APPLICATION_NAMESPACE = 'meucandidato'
-FACEBOOK_APPLICATION_INITIAL_PERMISSIONS = ['publish_stream']
+# FACEBOOK_APPLICATION_ID = '304749059612493'
+# FACEBOOK_APPLICATION_SECRET_KEY = 'c2fe4393d510a327026307788b414d47'
+# FACEBOOK_APPLICATION_NAMESPACE = 'meucandidato'
+# FACEBOOK_APPLICATION_INITIAL_PERMISSIONS = ['publish_stream']
 
 #Homolog
-# FACEBOOK_APPLICATION_ID = '208434202619169'
-# FACEBOOK_APPLICATION_SECRET_KEY = '71c146845e905e6143b8fab0474573bc'
-# FACEBOOK_APPLICATION_NAMESPACE = 'meucandidatohomolog'
-# FACEBOOK_APPLICATION_INITIAL_PERMISSIONS = ['publish_stream']
+FACEBOOK_APPLICATION_ID = '208434202619169'
+FACEBOOK_APPLICATION_SECRET_KEY = '71c146845e905e6143b8fab0474573bc'
+FACEBOOK_APPLICATION_NAMESPACE = 'meucandidatohomolog'
+FACEBOOK_APPLICATION_INITIAL_PERMISSIONS = ['publish_stream']
 
 MANAGERS = ADMINS
 
@@ -30,7 +30,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
         'NAME': 'meucandidato',                      # Or path to database file if using sqlite3.
         'USER': 'root',                      # Not used with sqlite3.
-        'PASSWORD': 'root',                  # Not used with sqlite3.
+        'PASSWORD': 'V183729465',                  # Not used with sqlite3.
         'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
         'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
     }

@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -44,7 +45,7 @@ class Candidato(models.Model):
 	municipio = models.ForeignKey(Municipio,blank=True)
 	pacote = models.CharField(choices=PACOTE_ESCOLHA, default=FREE, max_length=50)
 	nome = models.CharField(u'nome', max_length=150,blank=True)
-	nome_urna = models.CharField(u'nome urna', max_length=100,blank=True)
+	nome_urna = models.CharField(u'nome urna', max_length=100,blank=True,help_text="Nome que aparecerá no aplicativo")
 	partido = models.CharField(choices=PARTIDOS, default="Nenhum", max_length=20)
 	foto = models.ImageField(upload_to="imagens",blank=True)
 	numero = models.IntegerField(blank=True)
@@ -59,6 +60,8 @@ class Candidato(models.Model):
 	prioridade = models.IntegerField(default=1000)
 	def __unicode__(self):
 		return self.nome_urna
+	class Meta:
+		verbose_name_plural = "Candidato"
 
 class Pergunta(models.Model):
 	STATUS_ESCOLHA = ((ATIVO, "Publicado"), (INATIVO, "Nao Publicado"))

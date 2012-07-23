@@ -4,11 +4,19 @@ from aplicativo.models import Municipio,Candidato,Voto,Pergunta,Video
 
 
 class Admin(admin.ModelAdmin):
+	list_display = ('nome_urna', 'cargo', 'municipio')
+
 	def queryset(self, request):
 		query = super(Admin, self).queryset(request)
 		if request.user.is_superuser:
 			return query
-		return query.filter(user=request.user)
+		else:
+			candidato = Candidato.objects.get(user=request.user)
+			if candidato and candidato.cargo=="Prefeito":
+				self.exclude = ('user','pacote','cargo','status','prioridade')
+			else:
+				self.exclude = ('user','pacote','cargo','status','prioridade','vice_nome','vice_foto')
+			return query.filter(user=request.user)
 
 class AdminFilter(admin.ModelAdmin):
 	exclude = ('candidato',)	

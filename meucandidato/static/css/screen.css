@@ -66,6 +66,7 @@ padding: 5px 0 6px 195px;
 position: relative;
 display: block;
 width: 600px;
+overflow:hidden
 }
 header nav p{color:white;text-transform:uppercase;visibility:hidden;}
 header nav form{margin-top:6px;}
@@ -81,7 +82,9 @@ nav *{float:left;}
 #container-conteudo {background:url(/static/img/background.jpg) repeat-y 8px -40px;min-height: 655px;}
 h2{font-size:20px;color:#2470b1;}
 .descricao{margin:0 0 15px 25px;color:#a4a2a2}
-.cinza1{color:#a4a2a2}
+.cinza1{color:#a4a2a2;height:25px;}
+.mudar-cidade {float:right}
+.mudar-cidade:hover {text-decoration:none;}
 .listagem{overflow:hidden}
 #control-abas{margin-left: -25px;}
 #control-abas li{width:95px;height:20px;position:relative;text-align:right;background:url('/static/img/bg-nav-abas.png') no-repeat;color:#6E6C6C;padding:35px 20px 0 0;background-position:bottom;cursor:pointer}
@@ -132,7 +135,7 @@ overflow:hidden
 .interna .redes-sociais{float:right}
 .interna .numero {
 float: left;
-margin-top: -26px;
+margin-top: -4px;
 line-height: 50px;
 }
 .interna .numero .label{font-family:Arial, Helvetica, sans-serif}
@@ -175,6 +178,7 @@ box-shadow: 10px 10px 5px #888;border-radius:10px
 .img-float{float:left;margin:10px;border-radius: 20px;}
 .home .tab-pane{font-size:14px}
 .home .tab-pane li{list-style:inside;list-style-type:circle}
+.mudar-estado{background:none!important}
 /*fim dados do candidato*/
 
 /* end conteúdo */

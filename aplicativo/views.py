@@ -6,14 +6,18 @@ from django.http import HttpResponseRedirect, HttpResponse
 from fandjango.decorators import facebook_authorization_required
 from django.template.defaultfilters import title, escape, force_escape, escapejs
 from django.core.urlresolvers import reverse
-from django.views.decorators.csrf import csrf_protect
 
 @tem_cidade
 @facebook_authorization_required
 def app_home(request):
 	# try:
-		prefeitos = Candidato.objects.filter(cargo="Prefeito")
-		vereadores = Candidato.objects.filter(cargo="Vereador")
+		try:
+			usuarioCidade = UsuarioCidade.objects.get( usuario=request.facebook.user.facebook_id)
+			municipio = usuarioCidade.municipio
+		except:
+			municipio = Municipio.objects.get(pk=17)
+		prefeitos = Candidato.objects.filter(cargo="Prefeito", municipio=municipio)
+		vereadores = Candidato.objects.filter(cargo="Vereador", municipio=municipio)
 
 		jsonPrefeitos = '['
 		for item in prefeitos:
@@ -30,6 +34,7 @@ def app_home(request):
 		context['vereadores'] = vereadores
 		context['jsonPrefeitos'] = jsonPrefeitos
 		context['jsonVereadores'] = jsonVereadores
+		context['municipio'] = municipio
 		return render(request, 'app.html', context)
 	# except:
 	# 	return HttpResponseRedirect(reverse(app_home))
@@ -37,7 +42,6 @@ def app_home(request):
 	
 
 
-@tem_cidade
 def candidato_interna(request, candidato_id):
 	
 	try:

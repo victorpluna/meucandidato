@@ -42,6 +42,17 @@
 		var prefeitos = {{ jsonPrefeitos|safe }};
 		var vereadores = {{ jsonVereadores|safe }};
 	</script>
+
+	<!-- <div class="navbar">
+	  <div class="navbar-inner mudar-estado">
+	    <div class="container">
+	      <ul class="nav pull-right">
+	   		<li style="line-height: 34px;">{{ municipio.nome }} - {{ municipio.estado_sigla }}</li>    
+	        <li><a href="{% url mostrar_municipios %}"><span class="label label-important">Mudar de Cidade</span></a></li>    
+		   </ul>
+	    </div>
+	  </div>
+	</div> -->
 	<header>
 		<h1 id="logo"><img src="{{ STATIC_URL }}img/logo-meu-candidato-no-facebook.jpg" alt="Logo"></h1>
 		<section class="candidato-selected">

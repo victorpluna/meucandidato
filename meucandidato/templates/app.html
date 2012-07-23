@@ -12,7 +12,9 @@
 show_faces=false&width=380&action=like&colorscheme=light&height=25&locale=pt_BR" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:250px; height:25px;" allowTransparency="true"></iframe> </section>
 		</section>
 		<section class="coluna" id="coluna-direita">
-			<p class="cinza1">Candidatos à prefeito na cidade de Recife</p>
+			<p class="cinza1">Candidatos à prefeito na cidade: {{ municipio.nome }}
+			<a class="mudar-cidade" href="{% url mostrar_municipios %}"><span class="label label-important">Mudar de Cidade</span></a>
+			</p>
 			<div id='container-abas'>
 				<section class="listagem" id="listaprefeito">
 					{% for prefeito in prefeitos %}
@@ -21,13 +23,17 @@ show_faces=false&width=380&action=like&colorscheme=light&height=25&locale=pt_BR"
 							<h3 class="nome-candidato">{{ prefeito.nome_urna }}</h3>
 							<p class="partido">Partido:<span>{{ prefeito.partido }}</span></p>
 							<span class="numero">{{ prefeito.numero }}</span>
-							<p class="cargo">{{ prefeito.cargo }} <span class="cidade">{{ prefeito.municipio.nome }}</span> - <span class="estado">PE</span>
+							<p class="cargo">{{ prefeito.cargo }} <span class="cidade">{{ prefeito.municipio.nome }}</span> - <span class="estado">{{ prefeito.municipio.estado_sigla }}</span>
 								<input type="radio" name="escolha" value="escolha" /> 
 								{% if prefeito.pacote != "FREE" %}
 									<a href="{% url candidato_interna prefeito.id %}" class="saibamais">saiba+</a>
 								{% endif %}
 							</p>
 						</article>
+						{% empty %}
+							<br>
+							<br>
+							<p>Essa cidade ainda não possui candidatos cadastrados.<br>Indique candidatos de sua preferência clicando no botão <b>Indicar Candidato</b> ao lado.</p>
 						{% endfor %}
 					</section>
 				</section>
@@ -37,13 +43,17 @@ show_faces=false&width=380&action=like&colorscheme=light&height=25&locale=pt_BR"
 						<h3 class="nome-candidato">{{ vereador.nome_urna }}</h3>
 						<p class="partido">Partido:<span>{{ vereador.partido }}</span></p>
 						<span class="numero">{{ vereador.numero }}</span>
-						<p class="cargo">{{ vereador.cargo }}<span class="cidade">{{ vereador.municipio.nome }}</span> - <span class="estado">{{ vereador.municipio.estado }}</span>
+						<p class="cargo">{{ vereador.cargo }}<span class="cidade">{{ vereador.municipio.nome }}</span> - <span class="estado">{{ vereador.municipio.estado_sigla }}</span>
 							<input type="radio" name="escolhavereador" value="1" />
 							{% if vereador.pacote != "FREE" %}
 								<a href="{% url candidato_interna vereador.id %}" class="saibamais">saiba+</a>
 							{% endif %}
 						</p>
 					</article>
+					{% empty %}
+						<br>
+						<br>
+						<p>Essa cidade ainda não possui candidatos cadastrados.<br>Indique candidatos de sua preferência clicando no botão <b>Indicar Candidato</b> ao lado.</p>
 					{% endfor %}
 					
 				</section>
